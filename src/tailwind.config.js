@@ -8,7 +8,12 @@
     ],
      darkMode: false, // or 'media' or 'class'
      theme: {
-       extend: {},
+       extend: {
+         fontFamily:{
+           'title':['Sansita', 'sans-serif'],
+           'body':['Lato', 'sans-serif']
+         }
+       },
      },
      variants: {
        extend: {},

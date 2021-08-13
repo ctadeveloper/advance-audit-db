@@ -14,7 +14,7 @@
     <body class="antialiased">
         <div id="app">
 <example-component></example-component>
-            <p class="bg-gray-600">Rinzin</p>
+            <p class="bg-red-800  h-1/5">Rinzin</p>
         </div>
     </body>
 </html>
