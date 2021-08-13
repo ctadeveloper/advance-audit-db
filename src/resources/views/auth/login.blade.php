@@ -4,22 +4,23 @@
 
 
 <!-- <section class="container"> -->
-    <section class="w-1/4 bg-white mx-auto my-10 border-2 border-opacity-5 rounded-lg p-20 shadow-md">
-        <div class="text-center border-b-2 border-opacity-30 pb-2">
-            <p class="font-semibold text-xl font-title text-gray-500 p">LOGIN</p>
+    <section class="w-1/4 bg-white mx-auto my-10 border-2 border-opacity-5 rounded-lg py-20 px-16 shadow-md">
+        <div class="text-center border-b-2 border-pink-200 border-opacity-30 pb-2">
+            <p class="text-xl font-title text-gray-500 tracking-widest font-light">LOGIN</p>
         </div>
-        <form action="">
+        <form method="POST" class="p-5" action="{{ route('login') }}">
+        @csrf
                 <div class="py-3">
                     <!-- <label for="email" class="text-gray-700">{{ __('E-Mail Address') }}</label> -->
                     <input id="email" 
                     type="email" 
                     class="p-2 rounded-md bg-transparent border-2 border-pink-200 mt-1 block w-full border-transparent  focus:bg-white focus:outline-none focus:ring-1 focus:border-pink-400 @error('email') is-invalid @enderror" 
-                    name="username" value="{{ old('email') }}" 
-                    required autocomplete="username" 
+                    name="email" value="{{ old('email') }}" 
+                    required autocomplete="email" 
                     placeholder="Username"
                     autofocus>
 
-                    @error('username')
+                    @error('email')
                         <span class="text-sm text-red-600" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -45,7 +46,7 @@
                     </button>
                 </div>
                 <div class="py-2 flex justify-end">
-                <div class="mx-1">
+                <div>
                     <div class="form-check">
                         <input class="rounded-md border-2 border-green-400 bg-green-400" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                         <label class="text-gray-400 text-sm" for="remember">

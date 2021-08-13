@@ -19,8 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div id="app" class="bg-gray-50 h-screen">
+<body class="bg-gray-50 h-screen">
+    <div id="app">
         <div class="bg-white shadow-md">
             <header class="container mx-auto max-w-6xl flex flex-wrap items-center p-6 justify-between">
                 <div class="flex items-center text-sec hover:text-pri cursor-pointer transition">
@@ -41,22 +41,22 @@
                 <nav id="menu-items" class="hidden md:flex md:items-center font-title w-full md:w-auto">
                     <ul class="text-sm  text-gray-500 ">
                         <li class="my-3 md:my-0 block md:inline-block items-center mr-4">
-                            <a href="#" class="hover:text-yellow-600 transition">Users</a>
+                            <a href="#" class="hover:text-pink-600 transition">Users</a>
                         </li>
                         <li class="mb-3 md:mb-0 block md:inline-block items-center mr-4">
-                            <a href="#" class="hover:text-yellow-600 transition text-pink-600">Files</a>
+                            <a href="#" class="hover:text-pink-600 transition text-pink-600">Files</a>
                         </li>
                         <li class="mb-3 md:mb-0 block md:inline-block items-center mr-4">
-                            <a href="#" class=" hover:text-yellow-600 transition">Departments</a>
+                            <a href="#" class=" hover:text-pink-600 transition">Departments</a>
                         </li>
                         <li class="mb-3 md:mb-0 block md:inline-block items-center mr-4">
-                            <a href="#" class=":text-yellow-600 transition">Sub Departments</a>
+                            <a href="#" class=" hover:text-pink-600 transition">Sub Departments</a>
                         </li>
                         <li class="mb-3 md:mb-0 block md:inline-block items-center mr-4">
-                            <a href="#" class="hover:text-yellow-600 transition">Staffs</a>
+                            <a href="#" class="hover:text-pink-600 transition">Staffs</a>
                         </li>
                         <li class="mb-3 md:mb-0 block md:inline-block items-center mr-4">
-                            <a href="#" class="hover:text-yellow-600 transition">Logout</a>
+                            <a href="#" class="hover:text-pink-600 transition">Logout</a>
                         </li>
                     </ul>
                 </nav>
@@ -65,7 +65,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <footer class="my-20">
+        <footer class="my-14">
             <div class="text-center">
                 <p class="text-gray-400 text-sm font-normal">Central Tibetan Administration - Audit Department</p>
                 <p class="text-gray-400 text-xs py-2">Powered by - TCRC</p>
