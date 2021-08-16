@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
         // Added by Rinzin
-        protected $redirectTo = 'dashboard';
+        protected $redirectTo = 'portal/files';
 
     /**
      * Create a new controller instance.

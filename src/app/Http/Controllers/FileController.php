@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use Illuminate\Http\Request;
 
 class FileController extends Controller
@@ -14,7 +15,8 @@ class FileController extends Controller
     public function index()
     {
         //
-        return view('layouts.files.index');
+        $file = File::all();
+        return $file->toArray($file);
     }
 
     /**
@@ -81,5 +83,11 @@ class FileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    // Customized route
+    public function file(){
+        return view('layouts.files.index');
     }
 }
