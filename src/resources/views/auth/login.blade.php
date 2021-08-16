@@ -6,7 +6,7 @@
 <!-- <section class="container"> -->
     <section class="w-1/4  bg-white mx-auto my-10 border-2 border-opacity-5 rounded-lg py-20 px-16 shadow-md">
         <div class="text-center border-b-2 border-pink-200 border-opacity-30 pb-2">
-            <p class="text-xl font-title text-gray-500 tracking-widest font-light">AUDITOR</p>
+            <p class="text-xl font-title text-gray-500 tracking-widest font-light">AUDITOR TEst</p>
         </div>
         <form method="POST" class="p-5" action="{{ route('login') }}">
         @csrf
