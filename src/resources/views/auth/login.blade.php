@@ -4,9 +4,9 @@
 
 
 <!-- <section class="container"> -->
-    <section class="w-1/4 bg-white mx-auto my-10 border-2 border-opacity-5 rounded-lg py-20 px-16 shadow-md">
+    <section class="w-1/4  bg-white mx-auto my-10 border-2 border-opacity-5 rounded-lg py-20 px-16 shadow-md">
         <div class="text-center border-b-2 border-pink-200 border-opacity-30 pb-2">
-            <p class="text-xl font-title text-gray-500 tracking-widest font-light">LOGIN</p>
+            <p class="text-xl font-title text-gray-500 tracking-widest font-light">AUDITOR</p>
         </div>
         <form method="POST" class="p-5" action="{{ route('login') }}">
         @csrf
@@ -41,8 +41,8 @@
                     @enderror
                 </div>
                 <div class="py-3">
-                    <button type="submit" class="rounded-sm bg-pink-600 py-2 text-white hover:bg-pink-500 transition duration-150 ease-out w-full">
-                        {{ __('Login') }}
+                    <button type="submit" class="rounded-sm bg-pink-600 py-2 text-white hover:bg-pink-500 transition duration-150 ease-out w-full font-light tracking-widest">
+                        {{ __('LOGIN') }}
                     </button>
                 </div>
                 <div class="py-2 flex justify-end">
