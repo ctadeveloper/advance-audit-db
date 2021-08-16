@@ -28,7 +28,7 @@
                         <path
                             d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
                     </svg> -->
-                    <span class="font-semibold text-md font-title text-pink-700">Audit Database</span>
+                    <h4 class="font-semibold text-lg font-title text-pink-700">Audit Database</h4>
                 </div>
                 <div class="md:hidden block">
                     <button id="menu-open" class="px-3 py-1 rounded bg-sec text-white hover:bg-purple-900 transition">
@@ -56,13 +56,22 @@
                             <a href="#" class="hover:text-pink-600 transition">Staffs</a>
                         </li>
                         <li class="mb-3 md:mb-0 block md:inline-block items-center mr-4">
-                            <a href="#" class="hover:text-pink-600 transition">Logout</a>
+                        <a  href="{{ route('logout') }}"  class="hover:text-pink-600 transition" 
+                        onclick="event.preventDefault();
+                        localStorage.removeItem('accessToken');
+                        document.getElementById('logout-form').submit();">
+                            <span>logout</span>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                            <!-- <a href="{{}}" class="hover:text-pink-600 transition">Logout</a> -->
                         </li>
                     </ul>
                 </nav>
             </header>
         </div>
-        <main class="py-4 h-screen">
+        <main class="py-4 h-screen container mx-auto w-4/5">
             @yield('content')
         </main>
         <footer class="my-14">

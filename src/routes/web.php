@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,4 +28,6 @@ Auth::routes();
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::group(['middleware' => ['auth']])
+Route::group(['middleware' => ['auth']],function(){
+    Route::get('/files',[FileController::class,'index']);
+});

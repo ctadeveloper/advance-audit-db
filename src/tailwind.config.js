@@ -10,8 +10,8 @@
      theme: {
        extend: {
          fontFamily:{
-           'title':['Sansita', 'sans-serif'],
-           'body':['Lato', 'sans-serif']
+          //  'title':['Sansita', 'sans-serif'],
+          //  'body':['Lato', 'sans-serif']
          }
        },
      },
