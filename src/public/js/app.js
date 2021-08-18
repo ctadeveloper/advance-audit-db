@@ -2055,46 +2055,28 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app',
   mounted: function mounted() {
-    // if(!localStorage.getItem('accesstoken')){
-    // CREATE TOKEN
-    var data = {
-      name: 'Rinzin',
-      redirect: 'http://google.com/callback'
-    };
-    axios.post('/oauth/clients', data).then(function (response) {
-      console.log(response.data);
-    })["catch"](function (response) {// List errors on response...
-    }); // CREATE PERSONAL TOKEN
+    // Check if the accessToken storage is empty
+    // if Empty we should create on in database 
+    // otherwise we will skip that part
+    if (!localStorage.getItem('accessToken')) {
+      // CREATE TOKEN
+      var data = {
+        name: 'Rinzin',
+        redirect: 'http://google.com/callback'
+      };
+      axios.post('/oauth/clients', data).then(function (response) {})["catch"](function (response) {// List errors on response...
+      }); // CREATE PERSONAL TOKEN
 
-    var token = {
-      name: 'Token Name',
-      scopes: []
-    };
-    axios.post('/oauth/personal-access-tokens', token).then(function (response) {
-      // console.log(response.data.accessToken);
-      localStorage.setItem('accessToken', "Bear " + response.data.accessToken);
-    })["catch"](function (response) {// List errors on response...
-    });
-  } // UPDATE TOKEN
-  // const data = {
-  //     name: 'HELLOW',
-  //     redirect: 'http://example.com/CALLMEALLTHTIME'
-  // };
-  // axios.put('/oauth/clients/942e4c86-a977-4325-b923-acadf161e7f5', data)
-  //     .then(response => {
-  //         console.log(response.data);
-  //     })
-  //     .catch (response => {
-  //         // List errors on response...
-  //     });
-  // DELETE TOKEN
-  // const clientId = '12';
-  // axios.delete('/oauth/clients/' + clientId)
-  // .then(response => {
-  //     //
-  // });
-  // }
-
+      var token = {
+        name: 'Token Name',
+        scopes: []
+      };
+      axios.post('/oauth/personal-access-tokens', token).then(function (response) {
+        localStorage.setItem('accessToken', "Bear " + response.data.accessToken);
+      })["catch"](function (response) {// List errors on response...
+      });
+    }
+  }
 });
 
 /***/ }),

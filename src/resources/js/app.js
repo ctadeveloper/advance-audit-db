@@ -33,7 +33,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
     mounted(){
-        // if(!localStorage.getItem('accesstoken')){
+        // Check if the accessToken storage is empty
+        // if Empty we should create on in database 
+        // otherwise we will skip that part
+        if(!localStorage.getItem('accessToken')){
         // CREATE TOKEN
         const data = {
             name: 'Rinzin',
@@ -41,7 +44,6 @@ const app = new Vue({
         };
         axios.post('/oauth/clients', data)
             .then(response => {
-                console.log(response.data);
             })
             .catch (response => {
                 // List errors on response...
@@ -54,31 +56,11 @@ const app = new Vue({
         };
         axios.post('/oauth/personal-access-tokens', token)
             .then(response => {
-                // console.log(response.data.accessToken);
                 localStorage.setItem('accessToken',"Bear "+response.data.accessToken)
             })
             .catch (response => {
                 // List errors on response...
             });
         }
-        // UPDATE TOKEN
-        // const data = {
-        //     name: 'HELLOW',
-        //     redirect: 'http://example.com/CALLMEALLTHTIME'
-        // };
-        
-        // axios.put('/oauth/clients/942e4c86-a977-4325-b923-acadf161e7f5', data)
-        //     .then(response => {
-        //         console.log(response.data);
-        //     })
-        //     .catch (response => {
-        //         // List errors on response...
-        //     });
-        // DELETE TOKEN
-        // const clientId = '12';
-        // axios.delete('/oauth/clients/' + clientId)
-        // .then(response => {
-        //     //
-        // });
-    // }
+    }
 });
