@@ -25,12 +25,12 @@ class CreateFilesTable extends Migration
             $table->string('audit_report');
             $table->string('final_account');
             $table->enum('branch',['South','Nepal','North','Centre']);
-            $table->integer('pac_committee');
+            $table->integer('pac_committe');
             $table->boolean('pac_status');
-            $table->date('start_date');
-            $table->date('complete_date');
-            $table->date('submission_date');
-            $table->boolean('complete_status');
+            $table->dateTime('start_date');
+            $table->dateTime('complete_date');
+            $table->dateTime('submission_date');
+            $table->boolean('status');
             $table->string('remarks');
             $table->timestamps();
         });

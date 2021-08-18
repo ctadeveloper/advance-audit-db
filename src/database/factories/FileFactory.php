@@ -28,7 +28,7 @@ class FileFactory extends Factory
             'department' => $this->faker->numberBetween(1,10),
             'sub_department' => $this->faker->numberBetween(1,10),
             'file_no' => $this->faker->sentence(),
-            'accounting_year' => $this->faker->sentence(),
+            'accounting_year' => '2020-2021',
             'audit_report' => $this->faker->sentence(),
             'final_account' => $this->faker->sentence(),
             'pac_status' => $this->faker->numberBetween(1,10),
@@ -38,7 +38,7 @@ class FileFactory extends Factory
             'complete_date' => $this->faker->date(),
             'submission_date' => $this->faker->date(),
             'remarks' => $this->faker->sentence(),
-            'complete_status' => '1',
+            'status' => '1',
             'user_id' => function(){
                 return User::all()->random(); 
             }

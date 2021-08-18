@@ -1,11 +1,10 @@
 <template>
     <div class="overflow-auto">
     <table class="overflow-x-auto w-full bg-white">
-        {{files}}
-        <thead class="bg-pink-50 border-b text-left font-bold text-sm text-gray-600 border-gray-300">
+        <thead class="bg-gray-100 border-b text-center font-bold text-sm text-gray-600 border-gray-300">
             <tr>
                 <th class="p-4">S.No</th>
-                <th class="p-4">File No</th>
+                <!-- <th class="p-4">File No</th> -->
                 <th class="p-4">Branch</th>
                 <th class="p-4">Auditor</th>
                 <th class="p-4">Office</th>
@@ -21,24 +20,25 @@
                 <th class="p-4">Delete</th>
             </tr>
         </thead>
-        <tbody class="text-gray-600 text-sm divide-y divide-gray-300">
-            <tr class="bg-white font-medium text-sm divide-y divide-gray-200 hover:bg-gray-100  transition duration-300 ease-in-out ">
-                <td class="p-4 whitespace-nowrap"></td>
-                <td class="p-4 whitespace-nowrap cursor-pointer">
-                    <a href="" class="text-gray-500 font-semibold"></a>
-                </td>
-                <td class="p-4 whitespace-nowrap"></td>
-                <td class="p-4 whitespace-nowrap"></td>
-                <td class="p-4 whitespace-nowrap">
-
+        <tbody class="text-gray-600 text-sm divide-y divide-gray-300 text-center">
+            <tr class="bg-white divide-y divide-gray-200 hover:bg-gray-100  transition duration-300 ease-in-out" v-for="(file,index) in files" :key="file.id">
+                <td class="p-4 whitespace-nowrap"> {{index + 1}}</td>
+                <!-- <td class="p-4 whitespace-nowrap cursor-pointer">
+                    <a href="" class="text-gray-500 ">{{file.file_no}}</a>
+                </td> -->
+                <td class="p-4 whitespace-nowrap">{{file.branch}}</td>
+                <td class="p-4 whitespace-nowrap">{{file.user_id}}</td>
+                <td class="p-4 whitespace-nowrap">{{file.office}}</td>
+                <td class="p-4 whitespace-nowrap">{{file.department}}</td>
+                <td class="p-4 whitespace-nowrap text-gray-500 ">{{file.sub_department}}</td>
+                <td class="p-4 whitespace-nowrap">{{file.accounting_year}}</td>
+                <td class="p-4 whitespace-nowrap text-gray-500 ">{{file.account_type}}</td>
+                <td class="p-4 whitespace-nowrap text-gray-500 ">{{file.pac_committe}}</td>
+                <td class="p-4 whitespace-nowrap text-gray-500 ">{{file.pac_status}}</td>
+                <td class="p-4 whitespace-nowrap text-gray-500 ">
+                    <span v-if="file.status" class="text-green-500">Completed</span>
+                    <span v-else class="text-yellow-500">Processing</span>
                     </td>
-                <td class="p-4 whitespace-nowrap"></td>
-                <td class="p-4 whitespace-nowrap text-gray-500 font-semibold"></td>
-                <td class="p-4 whitespace-nowrap"></td>
-                <td class="p-4 whitespace-nowrap text-gray-500 font-semibold"></td>
-                <td class="p-4 whitespace-nowrap text-gray-500 font-semibold"></td>
-                <td class="p-4 whitespace-nowrap text-gray-500 font-semibold"></td>
-                <td class="p-4 whitespace-nowrap text-gray-500 font-semibold"></td>
                 <td class="p-4 whitespace-nowrap">
                     <a :href="'portal'">
                         <button class="border-2 border-indigo-200 rounded-md p-1" >
@@ -50,8 +50,8 @@
                     </a>
                 </td>
                 <td class="p-4 whitespace-nowrap">
-                    <button class="border-2 border-indigo-200 rounded-md p-1" >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-4 w-4 text-indigo-500">
+                    <button class="border-2 border-yellow-200 rounded-md p-1" >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-4 w-4 text-yellow-500">
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
@@ -87,13 +87,11 @@ export default {
             axios.get('/api/file')
             .then(response => {
                 this.files = response.data;
-                console.log(this.files);
             })
         }
     },
     mounted(){
         this.load();
-        console.log(this.files);
 
     }
 }

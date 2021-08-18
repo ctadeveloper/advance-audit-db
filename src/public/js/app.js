@@ -1985,13 +1985,11 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/file').then(function (response) {
         _this.files = response.data;
-        console.log(_this.files);
       });
     }
   },
   mounted: function mounted() {
     this.load();
-    console.log(this.files);
   }
 });
 
@@ -37669,53 +37667,84 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "overflow-auto" }, [
     _c("table", { staticClass: "overflow-x-auto w-full bg-white" }, [
-      _vm._v("\n    " + _vm._s(_vm.files) + "\n    "),
       _vm._m(0),
       _vm._v(" "),
       _c(
         "tbody",
-        { staticClass: "text-gray-600 text-sm divide-y divide-gray-300" },
-        [
-          _c(
+        {
+          staticClass:
+            "text-gray-600 text-sm divide-y divide-gray-300 text-center"
+        },
+        _vm._l(_vm.files, function(file, index) {
+          return _c(
             "tr",
             {
+              key: file.id,
               staticClass:
-                "bg-white font-medium text-sm divide-y divide-gray-200 hover:bg-gray-100  transition duration-300 ease-in-out "
+                "bg-white divide-y divide-gray-200 hover:bg-gray-100  transition duration-300 ease-in-out"
             },
             [
-              _c("td", { staticClass: "p-4 whitespace-nowrap" }),
+              _c("td", { staticClass: "p-4 whitespace-nowrap" }, [
+                _vm._v(" " + _vm._s(index + 1))
+              ]),
               _vm._v(" "),
-              _vm._m(1),
+              _c("td", { staticClass: "p-4 whitespace-nowrap" }, [
+                _vm._v(_vm._s(file.branch))
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "p-4 whitespace-nowrap" }),
+              _c("td", { staticClass: "p-4 whitespace-nowrap" }, [
+                _vm._v(_vm._s(file.user_id))
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "p-4 whitespace-nowrap" }),
+              _c("td", { staticClass: "p-4 whitespace-nowrap" }, [
+                _vm._v(_vm._s(file.office))
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "p-4 whitespace-nowrap" }),
+              _c("td", { staticClass: "p-4 whitespace-nowrap" }, [
+                _vm._v(_vm._s(file.department))
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "p-4 whitespace-nowrap" }),
+              _c(
+                "td",
+                { staticClass: "p-4 whitespace-nowrap text-gray-500 " },
+                [_vm._v(_vm._s(file.sub_department))]
+              ),
               _vm._v(" "),
-              _c("td", {
-                staticClass: "p-4 whitespace-nowrap text-gray-500 font-semibold"
-              }),
+              _c("td", { staticClass: "p-4 whitespace-nowrap" }, [
+                _vm._v(_vm._s(file.accounting_year))
+              ]),
               _vm._v(" "),
-              _c("td", { staticClass: "p-4 whitespace-nowrap" }),
+              _c(
+                "td",
+                { staticClass: "p-4 whitespace-nowrap text-gray-500 " },
+                [_vm._v(_vm._s(file.account_type))]
+              ),
               _vm._v(" "),
-              _c("td", {
-                staticClass: "p-4 whitespace-nowrap text-gray-500 font-semibold"
-              }),
+              _c(
+                "td",
+                { staticClass: "p-4 whitespace-nowrap text-gray-500 " },
+                [_vm._v(_vm._s(file.pac_committe))]
+              ),
               _vm._v(" "),
-              _c("td", {
-                staticClass: "p-4 whitespace-nowrap text-gray-500 font-semibold"
-              }),
+              _c(
+                "td",
+                { staticClass: "p-4 whitespace-nowrap text-gray-500 " },
+                [_vm._v(_vm._s(file.pac_status))]
+              ),
               _vm._v(" "),
-              _c("td", {
-                staticClass: "p-4 whitespace-nowrap text-gray-500 font-semibold"
-              }),
-              _vm._v(" "),
-              _c("td", {
-                staticClass: "p-4 whitespace-nowrap text-gray-500 font-semibold"
-              }),
+              _c(
+                "td",
+                { staticClass: "p-4 whitespace-nowrap text-gray-500 " },
+                [
+                  file.status
+                    ? _c("span", { staticClass: "text-green-500" }, [
+                        _vm._v("Completed")
+                      ])
+                    : _c("span", { staticClass: "text-yellow-500" }, [
+                        _vm._v("Processing")
+                      ])
+                ]
+              ),
               _vm._v(" "),
               _c("td", { staticClass: "p-4 whitespace-nowrap" }, [
                 _c("a", { attrs: { href: "portal" } }, [
@@ -37765,12 +37794,12 @@ var render = function() {
               _c("td", { staticClass: "p-4 whitespace-nowrap" }, [
                 _c(
                   "button",
-                  { staticClass: "border-2 border-indigo-200 rounded-md p-1" },
+                  { staticClass: "border-2 border-yellow-200 rounded-md p-1" },
                   [
                     _c(
                       "svg",
                       {
-                        staticClass: "h-4 w-4 text-indigo-500",
+                        staticClass: "h-4 w-4 text-yellow-500",
                         attrs: {
                           xmlns: "http://www.w3.org/2000/svg",
                           fill: "none",
@@ -37836,7 +37865,8 @@ var render = function() {
               ])
             ]
           )
-        ]
+        }),
+        0
       )
     ])
   ])
@@ -37850,13 +37880,11 @@ var staticRenderFns = [
       "thead",
       {
         staticClass:
-          "bg-pink-50 border-b text-left font-bold text-sm text-gray-600 border-gray-300"
+          "bg-gray-100 border-b text-center font-bold text-sm text-gray-600 border-gray-300"
       },
       [
         _c("tr", [
           _c("th", { staticClass: "p-4" }, [_vm._v("S.No")]),
-          _vm._v(" "),
-          _c("th", { staticClass: "p-4" }, [_vm._v("File No")]),
           _vm._v(" "),
           _c("th", { staticClass: "p-4" }, [_vm._v("Branch")]),
           _vm._v(" "),
@@ -37886,17 +37914,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "p-4 whitespace-nowrap cursor-pointer" }, [
-      _c("a", {
-        staticClass: "text-gray-500 font-semibold",
-        attrs: { href: "" }
-      })
-    ])
   }
 ]
 render._withStripped = true
