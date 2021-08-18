@@ -2005,7 +2005,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.load();
-    console.log("test");
+    console.log("rinzin");
   }
 });
 
