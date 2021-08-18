@@ -83,13 +83,13 @@ export default {
         }
     },
     methods:{
-        // load(){
-        //     axios.get('/api/file')
-        //     .then(response => {
-        //         this.files = response.data;
-        //         console.log(this.files);
-        //     })
-        // }
+        load(){
+            axios.get('/api/file')
+            .then(response => {
+                this.files = response.data;
+                console.log(this.files);
+            })
+        }
     },
     mounted(){
             axios.get('/api/file')

@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="bg-gray-50 h-screen">
-    <div id=>
+    <div id="app">
         <main class="py-4">
             @yield('content')
         </main>
@@ -39,7 +39,6 @@
         </footer>
     </div>
     </div>
-    <script src="{{asset('js/app.js')}}"></script>
 
 </body>
 </html>
