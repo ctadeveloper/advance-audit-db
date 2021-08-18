@@ -104,7 +104,7 @@ export default {
     components: {Loading},
     mounted(){
         this.load();
-
+        console.log("test");
     }
 }
 </script>
