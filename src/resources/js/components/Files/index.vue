@@ -1,5 +1,9 @@
 <template>
     <div class="overflow-auto">
+        <Loading 
+            :active.sync="isLoading"
+            :is-full-page="fullPage">
+        </Loading>
     <table class="overflow-x-auto w-full bg-white">
         <thead class="bg-gray-100 border-b text-center font-bold text-sm text-gray-600 border-gray-300">
             <tr>
@@ -76,10 +80,16 @@
 </template>
 
 <script>
+// loading
+import Loading from 'vue-loading-overlay';
+
 export default {
     data(){
         return{
-            files:{}
+            files:{},
+            // Loading
+            isLoading: true,
+            fullPage: true
         }
     },
     methods:{
@@ -87,9 +97,11 @@ export default {
             axios.get('/api/file')
             .then(response => {
                 this.files = response.data;
+                this.isLoading = false;
             })
         }
     },
+    components: {Loading},
     mounted(){
         this.load();
 

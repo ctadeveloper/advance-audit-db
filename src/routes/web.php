@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +36,18 @@ Route::group(['middleware' => ['web']],function(){
     Route::prefix('portal')->group(function(){
         Route::get('/files',[FileController::class,'file'])->name('layouts.files.index');
     });
+});
+
+Route::get('/redirect', function (Request $request) {
+    $request->session()->put('state', $state = Str::random(40));
+
+    $query = http_build_query([
+        'client_id' => '942e4c86-a977-4325-b923-acadf161e7f5',
+        'redirect_uri' => 'http://localhost:8000/dashboard',
+        'response_type' => 'code',
+        'scope' => '',
+        'state' => $state,
+    ]);
+
+    return redirect('http://localhost:8000/dashboard?'.$query);
 });
