@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// REInzin
 Route::get('/', function () {
     // return view('welcome');
     return redirect('/login');
